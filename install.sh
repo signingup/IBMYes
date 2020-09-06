@@ -35,7 +35,7 @@ clone_repo(){
     cd v2ray-cloudfoundry/v2ray
     # Upgrade V2Ray to the latest version
     rm v2ray v2ctl
-    cp ${SH_PATH}/confifg.json ./
+    cp ${SH_PATH}/config.json ./
     
     # Script from https://github.com/v2fly/fhs-install-v2ray/blob/master/install-release.sh
     # Get V2Ray release version number
