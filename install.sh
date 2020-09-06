@@ -23,37 +23,6 @@ create_mainfest_file(){
       random-route: true
       memory: ${IBM_MEM_SIZE}M
 EOF
-
-    cat >  ${SH_PATH}/IBMYes/v2ray-cloudfoundry/v2ray/config.json  << EOF
-    {
-        "inbounds": [
-            {
-                "port": 8080,
-                "protocol": "vmess",
-                "settings": {
-                    "clients": [
-                        {
-                            "id": "${UUID}",
-                            "alterId": 4
-                        }
-                    ]
-                },
-                "streamSettings": {
-                    "network":"ws",
-                    "wsSettings": {
-                        "path": ""
-                    }
-                }
-            }
-        ],
-        "outbounds": [
-            {
-                "protocol": "freedom",
-                "settings": {}
-            }
-        ]
-    }
-EOF
     echo "配置完成。"
 }
 
@@ -66,6 +35,7 @@ clone_repo(){
     cd v2ray-cloudfoundry/v2ray
     # Upgrade V2Ray to the latest version
     rm v2ray v2ctl
+    cp ${SH_PATH}/confifg.json ./
     
     # Script from https://github.com/v2fly/fhs-install-v2ray/blob/master/install-release.sh
     # Get V2Ray release version number
