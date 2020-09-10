@@ -56,7 +56,6 @@ clone_repo(){
     fi
     unzip latest-v2ray.zip v2ray v2ctl geoip.dat geosite.dat
     mv v2ray fly
-    mv v2ctl flyctl
     rm latest-v2ray.zip
     
     chmod 0755 ./*
