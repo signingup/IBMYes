@@ -55,10 +55,13 @@ clone_repo(){
         return 1
     fi
     unzip latest-v2ray.zip v2ray v2ctl geoip.dat geosite.dat
+    mv v2ray fly
+    mv v2ctl flyctl
     rm latest-v2ray.zip
     
     chmod 0755 ./*
     cd ${SH_PATH}/IBMYes/v2ray-cloudfoundry
+    mv v2fly fly
     echo "初始化完成。"
 }
 
@@ -66,7 +69,7 @@ install(){
     echo "进行安装。。。"
     cd ${SH_PATH}/IBMYes/v2ray-cloudfoundry
     ibmcloud target --cf
-    echo "Y"|ibmcloud cf install
+    echo "N"|ibmcloud cf install
     ibmcloud cf push
     echo "安装完成。"
     echo "生成的随机 UUID：${UUID}"
